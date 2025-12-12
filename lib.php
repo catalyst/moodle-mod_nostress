@@ -117,7 +117,7 @@ function nostress_get_coursemodule_info($coursemodule) {
         }
         $info = new cached_cm_info();
         // no filtering hre because this info is cached and filtered later
-        $info->content = format_module_intro('label', $label, $coursemodule->id, false);
+        $info->content = 'NO STRESS!!!<br>' . format_module_intro('label', $label, $coursemodule->id, false);
         $info->name  = $label->name;
         return $info;
     } else {
