@@ -109,20 +109,24 @@ function nostress_delete_instance($id) {
 function nostress_get_coursemodule_info($coursemodule) {
     global $DB;
 
-    if ($label = $DB->get_record('label', array('id'=>$coursemodule->instance), 'id, name, intro, introformat')) {
-        if (empty($label->name)) {
-            // label name missing, fix it
-            $label->name = "label{$label->id}";
-            $DB->set_field('label', 'name', $label->name, array('id'=>$label->id));
-        }
-        $info = new cached_cm_info();
-        // no filtering hre because this info is cached and filtered later
-        $info->content = 'NO STRESS!!!<br>' . format_module_intro('label', $label, $coursemodule->id, false);
-        $info->name  = $label->name;
-        return $info;
-    } else {
-        return null;
+    $dbparams = ['id' => $coursemodule->instance];
+    if (!$mod = $DB->get_record('nostress', $dbparams)) {
+        return false;
     }
+
+    $info = new cached_cm_info();
+    // no filtering hre because this info is cached and filtered later
+    $delay = get_config('mod_nostress', 'delay');
+    $info->content = "NO STRESS!!! Delay = $delay<br>" . format_module_intro('nostress', $mod, $coursemodule->id, false);
+    $info->name  = $mod->name . " delay = $delay";
+
+    if ($delay) {
+        usleep((int)$delay * 1000);
+        error_log("Delaying by $delay");
+    }
+
+    return $info;
+
 }
 
 /**

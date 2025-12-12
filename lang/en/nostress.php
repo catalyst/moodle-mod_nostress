@@ -28,6 +28,8 @@ defined('MOODLE_INTERNAL') || die();
 $string['modulename'] = 'No Stress!';
 $string['modulenameplural'] = 'No Stresses!';
 $string['nostressfieldset'] = '';
+$string['configdelay'] = 'How much fake delay should each module instance have in milliseconds?';
+$string['delay'] = 'Delay';
 $string['nostressname'] = 'No stress';
 $string['nostressname_help'] = 'No stress';
 $string['nostresssettings'] = '';
