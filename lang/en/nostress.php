@@ -33,3 +33,4 @@ $string['nostressname_help'] = 'No stress';
 $string['nostresssettings'] = '';
 $string['pluginadministration'] = '';
 $string['pluginname'] = 'No Stress!';
+$string['progress_createnostress'] = 'No Stress!';

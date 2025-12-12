@@ -125,3 +125,31 @@ function nostress_get_coursemodule_info($coursemodule) {
     }
 }
 
+/**
+ * Creates a number of stressful things
+ *
+ * @param tool_generator_course_backend $backend
+ * @param testing_data_generator $generator
+ * @param int $courseid
+ * @param int $number
+ * @return void
+ */
+function nostress_course_backend_generator_create_activity(tool_generator_course_backend $backend,
+    testing_data_generator $generator,
+    int $courseid,
+    int $number
+) {
+    // Set up generator.
+    $generator = $generator->get_plugin_generator('mod_nostress');
+
+    // Create assignments.
+    $backend->log('createnostress', $number, true, 'mod_nostress');
+    for ($i = 0; $i < $number; $i++) {
+        $record = array('course' => $courseid);
+        $options = array('section' => $backend->get_target_section());
+        $generator->create_instance($record, $options);
+        $backend->dot($i, $number);
+    }
+    $backend->end_log();
+}
+

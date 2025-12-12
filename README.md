@@ -6,4 +6,15 @@ is not only working correctly but correctly under sustained load even while
 being actively edited in a variety of ways.
 
 
+Make a test course:
+
+```sh
+php public/admin/tool/generator/cli/maketestcourse.php --size=S --shortname=nostress --additionalmodules=nostress
+```
+
+Delete the test course
+
+```
+php admin/cli/delete_course.php --non-interactive --disablerecyclebin  --courseshortname=nostress
+```
 
