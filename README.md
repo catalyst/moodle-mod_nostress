@@ -12,6 +12,7 @@ Make a test course:
 ```sh
 # Turn on guest access
 php admin/cli/cfg.php --component=enrol_guest --name=status --set=0
+php admin/cli/cfg.php --name=autologinguests --set=1
 
 # Make a test course
 php public/admin/tool/generator/cli/maketestcourse.php --size=S --shortname=nostress --additionalmodules=nostress
@@ -34,6 +35,6 @@ ab -c 10 -n 10 https://main.localhost/course/view.php?name=nostress
 
 ```sh
 # Delete the test course
-php admin/cli/delete_course.php --non-interactive --disablerecyclebin  --courseshortname=nostress
+php admin/cli/delete_course.php --non-interactive --disablerecyclebin  --courseid=xxxxx
 ```
 
