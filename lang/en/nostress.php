@@ -30,6 +30,7 @@ $string['delay'] = 'Delay';
 $string['modulename'] = 'No Stress!';
 $string['modulenameplural'] = 'No Stresses!';
 $string['nostress:addinstance'] = 'Add some stress';
+$string['nostress:view'] = 'View some stress';
 $string['nostressfieldset'] = '';
 $string['nostressname'] = 'No stress';
 $string['nostressname_help'] = 'No stress';
