@@ -15,27 +15,29 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin strings are defined here.
+ * Privacy Subsystem implementation for mod_nostress.
  *
  * @package     mod_nostress
- * @category    string
  * @copyright   2025 Brendan Heywood <brendan@catalyst-au.net>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace mod_nostress\privacy;
 
-$string['configdelay'] = 'How much fake delay should each module instance have in milliseconds?';
-$string['delay'] = 'Delay';
-$string['modulename'] = 'No Stress!';
-$string['modulenameplural'] = 'No Stresses!';
-$string['nostress:addinstance'] = 'Add some stress';
-$string['nostress:view'] = 'View some stress';
-$string['nostressfieldset'] = '';
-$string['nostressname'] = 'No stress';
-$string['nostressname_help'] = 'No stress';
-$string['nostresssettings'] = '';
-$string['pluginadministration'] = '';
-$string['pluginname'] = 'No Stress!';
-$string['privacy:metadata'] = 'The No Stress! activity module does not store any personal user data.';
-$string['progress_createnostress'] = 'No Stress!';
+/**
+ * The mod_nostress module does not store any personal user data.
+ *
+ * @copyright   2025 Brendan Heywood <brendan@catalyst-au.net>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier explaining why this plugin stores no data.
+     *
+     * @return string
+     */
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
+}
