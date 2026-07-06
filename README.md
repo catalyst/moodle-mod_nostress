@@ -37,6 +37,6 @@ h2load -c 10 -n 10 https://main.localhost/course/view.php?name=nostress
 
 ```sh
 # Delete the test course
-php admin/cli/delete_course.php --non-interactive --disablerecyclebin  --courseshortname=nostress
+php admin/cli/delete_course.php --non-interactive --disablerecyclebin  --courseid=xxxxx
 ```
 
